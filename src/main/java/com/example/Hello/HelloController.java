@@ -43,7 +43,7 @@ public class HelloController
     @GetMapping("/see")
     public String see(Model model)
     {
-        model.addAttribute("menulist", menuService.findAll());
+        model.addAttribute("list", menuService.findAll());
         return "see";
     }
 
