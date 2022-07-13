@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface MenuRepository extends JpaRepository<MenuVo, Long>
 {
-//    @Query("SELECT  FROM tb_menu")
-//    List<MenuVo> findAll();
+    @Query(value = "SELECT * FROM tb_menu ORDER BY RAND() LIMIT 1", nativeQuery=true)
+    List<MenuVo> findRandMenu();
 }

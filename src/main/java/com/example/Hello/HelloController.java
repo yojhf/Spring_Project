@@ -26,6 +26,11 @@ public class HelloController
     {
         return "index";
     }
+    @GetMapping("/blog")
+    public String blog()
+    {
+        return "blog";
+    }
     @GetMapping("/insert")
     public String insert()
     {
@@ -45,6 +50,11 @@ public class HelloController
     {
         model.addAttribute("list", menuService.findAll());
         return "see";
+    }
+    @GetMapping("/best")
+    public String best()
+    {
+        return "best";
     }
 
 
