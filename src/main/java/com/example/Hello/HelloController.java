@@ -3,6 +3,7 @@ package com.example.Hello;
 import com.example.Hello.dto.TbMenu;
 import com.example.Hello.dto.TbUser;
 import com.example.Hello.service.MenuService;
+import com.example.Hello.service.MusicService;
 import com.example.Hello.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,8 @@ public class HelloController
 {
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private MusicService musicService;
     @GetMapping("/")
     public String index()
     {
@@ -50,6 +53,12 @@ public class HelloController
     {
         model.addAttribute("list", menuService.findAll());
         return "see";
+    }
+    @GetMapping("/melon")
+    public String melon(Model model)
+    {
+        model.addAttribute("list", musicService.getMelonMusicList());
+        return "melon";
     }
     @GetMapping("/best")
     public String best()

@@ -1,0 +1,22 @@
+{{>layout/header}}
+<!-- 목록 출력 영역 -->
+<table class="table table-horizontal table-bordered">
+  <thead class="thead-strong">
+  <tr>
+    <th>노래 순위</th>
+    <th>곡 제목</th>
+    <th>가수 이름</th>
+  </tr>
+  </thead>
+  <tbody id="tbody">
+  <!-- #은 반복문 -->
+  {{#list}}
+  <tr>
+    <td>{{rank}}</td>
+    <td>{{song}}</td>
+    <td>{{gasu}}</td>
+  </tr>
+  {{/list}}
+  </tbody>
+</table>
+{{>layout/footer}}

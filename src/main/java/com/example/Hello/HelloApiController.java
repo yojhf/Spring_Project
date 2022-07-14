@@ -1,6 +1,8 @@
 package com.example.Hello;
 
+import com.example.Hello.dto.TbMusic;
 import com.example.Hello.service.MenuService;
+import com.example.Hello.service.MusicService;
 import com.example.Hello.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,8 @@ public class HelloApiController
 {
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private MusicService musicService;
     @RequestMapping("/Hello")
     String home()
     {
@@ -54,5 +58,12 @@ public class HelloApiController
         String json = menuService.blogSearch(keyword);
         return new ResponseEntity<String>(json, HttpStatus.OK);
     }
+    @GetMapping("/api/v1/melon")
+    public ResponseEntity<List<TbMusic>> getMelonList()
+    {
+        List<TbMusic> list = musicService.getMelonMusicList();
+        return new ResponseEntity<List<TbMusic>>(list, HttpStatus.OK);
+    }
+
 
 }
